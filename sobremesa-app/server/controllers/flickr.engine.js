@@ -19,16 +19,26 @@ function autenticar(){
     });
 }
 
-controller.test = function(){
+controller.test = function(req, res, next){
     autenticar().then(function(api){
         api.photos.search({
             text: "cat"
         }, function(err, result){
-            if(err) {console.log(err);}
-            else {console.log(result);}
+            if(err) {
+                res.status(500);
+                res.set('Content-Type', 'text/xml');
+                res.send("Problemas al cargar la informacion: " + err);
+            }
+            else {
+                res.status(200);
+                res.set('Content-Type', 'text/xml');
+                res.send(result);
+            }
         });
     }, function(error){
-        console.log(error);
+            res.status(500);
+            res.set('Content-Type', 'text/xml');
+            res.send("Problemas al cargar la informacion: " + error);
     });
 }
 
