@@ -22,7 +22,7 @@ function autenticar(){
 controller.test = function(req, res, next){
     autenticar().then(function(api){
         api.photos.search({
-            text: "cat"
+            text: "British Library menswear",
         }, function(err, result){
             if(err) {
                 res.status(500);
@@ -30,15 +30,15 @@ controller.test = function(req, res, next){
                 res.send("Problemas al cargar la informacion: " + err);
             }
             else {
+                var photos = result.photos.photo;
                 res.status(200);
-                res.set('Content-Type', 'text/xml');
-                res.send(result);
+                res.json(photos);
             }
         });
     }, function(error){
             res.status(500);
             res.set('Content-Type', 'text/xml');
-            res.send("Problemas al cargar la informacion: " + error);
+            res.send("Problemas al conectarse con Flickr: " + error);
     });
 }
 
