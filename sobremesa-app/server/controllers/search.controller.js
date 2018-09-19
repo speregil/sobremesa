@@ -4,17 +4,27 @@ var controller = {};
 
 controller.search = function(meta){
     var fullSearch = [];
-    var errSearch = "Engines could not find data: ";
-    return new Promise(function(resolve){
-        flickrService.search(meta).then(function(results){
+    var errSearch = [];
+
+    var flickrResults = flickrService.search(meta).then(function(results, err){
+        if(results.length > 0)
             fullSearch = fullSearch.concat(results);
-        }, function(err){
-            errSearch += err + ",";
-        });
-        var googleResults = [];
-        var wikimediaResults = [];
-        var vnaResults = [];
-        resolve(fullSearch, errSearch);
+        if(err != "" && typeof(err) != 'undefined'){
+            errSearch.push("Flickr");
+            console.log("Problemas en la busqueda con Flickr: " + err);
+        }
+    }, function(){});
+
+    var googleResults = new Promise((resolve, reject) => {resolve()});
+    var wikimediaResults = new Promise((resolve, reject) => {resolve()});
+    var vnaResults = new Promise((resolve, reject) => {resolve()});
+
+    return new Promise(function(resolve,reject){
+        Promise.all([flickrResults, googleResults, wikimediaResults, vnaResults]).then(function(){
+            resolve(fullSearch, errSearch);
+        }, function(){
+            reject("Algo impidio que al menos una busqueda no se resolviera");
+        })
     });   
 }
 

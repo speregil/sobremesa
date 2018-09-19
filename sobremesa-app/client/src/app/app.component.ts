@@ -10,10 +10,10 @@ import { Service } from './app.service';
 export class AppComponent {
   constructor(private service: Service){}
 
-  title = 'Sobremesa Digital';
-  fotos = [];
+  photos = [];
+  searchTerms = "";
 
-  pruebaBusqueda(){
-    this.service.pruebaBusqueda().subscribe(data => this.fotos = data);
+  metaSearch(){
+    this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data);
   }
 }

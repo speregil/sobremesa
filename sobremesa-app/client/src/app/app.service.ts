@@ -6,7 +6,7 @@ export class Service {
   
     constructor ( private http: HttpClient) {}
 
-    pruebaBusqueda(){
-        return this.http.get<{}[]>('http://localhost:3000/api/test');
+    metaSearch(meta : string){
+        return this.http.get<{}[]>('http://localhost:3000/search/' + meta);
     }
 }

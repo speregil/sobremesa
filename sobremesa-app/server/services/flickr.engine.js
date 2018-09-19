@@ -20,7 +20,7 @@ function auth(){
 }
 
 function createSearchText(meta){
-    var txtSearch = "British Library " + meta;
+    var txtSearch = "antique " + meta;
     console.log("Flicker searching for: " + txtSearch);
     return txtSearch;
 }
@@ -42,15 +42,14 @@ engine.search = function(meta){
         auth().then(function(api){       
             api.photos.search({text: createSearchText(meta)}, function(err, result){
                 if(err) 
-                    reject("Problemas al cargar la informacion: " + err)
+                    resolve([],"Problemas al cargar la informacion: " + err)
                 else {
                     var photos = result.photos.photo;
-                    resolve(createPhotoArray(photos));
+                    resolve(createPhotoArray(photos), "");
                 }
             });
         }, function(error){           
-            console.log("Problemas al conectarse con Flickr: " + error);
-            reject("Problemas al conectarse con Flickr: " + error);
+            resolve([], "Problemas al conectarse con Flickr: " + error);
         });
     });    
 }

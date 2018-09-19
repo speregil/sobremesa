@@ -1,25 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Prueba alfa de {{ title }}!
+    Sobremesa Digital v. 1.2
   </h1>
-  <button class="btn btn-md btn-primary" (click) = "pruebaBusqueda()">Buscar</button>
-  
-  <div id="dia 1">
-    <p>
-      Sed sed metus vel purus <span id="man shirt sleeve">dignissim malesuada.</span> Suspendisse facilisis nisi et ullamcorper aliquet. Quisque vestibulum malesuada placerat. 
-      Aliquam congue erat vel metus facilisis interdum. Donec congue nec felis consectetur ultricies. Curabitur ultrices porta leo, eget ornare arcu blandit 
-      non. Aliquam imperdiet nibh nec arcu placerat, eget ullamcorper eros placerat. Aenean quis sollicitudin elit. Mauris eleifend scelerisque velit, bibendum 
-      rutrum elit dictum bibendum. Fusce pulvinar arcu sed posuere porttitor. Sed tincidunt risus id mauris lobortis, et gravida nibh porta. Nulla vulputate 
-      metus eros, et faucibus tortor eleifend lacinia. Proin eget metus arcu. Sed purus est, interdum id mauris pellentesque, placerat ullamcorper nisi. 
-      In varius metus vel eleifend ullamcorper.
-    </p>
-  </div>
+  <input [(ngModel)]="searchTerms" placeholder="Terminos de busqueda..."><button class="btn btn-md btn-primary" (click) = "metaSearch()">Buscar</button>
   
   <div class="col-md-4">
     <table class="table">
-      <tr class="d-flex" *ngFor="let foto of fotos">
-        <td><img src="https://farm{{foto.farm}}.staticflickr.com/{{foto.server}}/{{foto.id}}_{{foto.secret}}.jpg"></td>
+      <tr class="d-flex" *ngFor="let photo of photos">
+        <td><img src="{{photo.uri}}"></td>
       </tr>
     </table>
   </div>
