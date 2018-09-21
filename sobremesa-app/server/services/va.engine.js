@@ -13,11 +13,26 @@ function createSerachURL(meta){
     return meta;    
 }
 
+function createPhotoArray(photos){
+    var photoArray = [];
+    for(i = 0; i < photos.length; i++){
+        var key = photos[i].fields.primary_image_id;
+        var photo = {
+            source : "V&A",
+            uri : "http://media.vam.ac.uk/media/thira/collection_images/" + key.substring(0,6) + "/" + key + ".jpg"
+        }
+        photoArray.push(photo);
+    }
+    return photoArray;
+}
+
 engine.search = function(meta){
     return new Promise(function(resolve, reject){ 
         axios.get(url + createSerachURL(meta)).then(function(results){
-            console.log(results.data.records);
-            resolve();
+             var photos = results.data.records;
+            resolve(createPhotoArray(photos),"");
+        }, function(error){
+            resolve([], "Problemas al conectarse con Flickr: " + error);
         });
     });    
 }
