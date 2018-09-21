@@ -14,6 +14,6 @@ export class AppComponent {
   searchTerms = "";
 
   metaSearch(){
-    this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data);
+    this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data["photos"]);
   }
 }

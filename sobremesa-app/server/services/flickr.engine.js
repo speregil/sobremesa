@@ -1,4 +1,5 @@
 var Flickr = require("flickrapi");
+var textService = require('../services/text.service');
 
 var flickrOptions = {
       api_key: "825af5a753182beb909658cecae17387",
@@ -20,7 +21,11 @@ function auth(){
 }
 
 function createSearchText(meta){
-    var txtSearch = "antique " + meta;
+    for(var i = 0; i < meta.length; i++){
+        if(meta.charAt(i) === ' ')
+            meta = textService.setCharAt(meta,i,',');
+    }
+    var txtSearch = "bldigital," + meta;
     console.log("Flicker searching for: " + txtSearch);
     return txtSearch;
 }
@@ -40,7 +45,7 @@ function createPhotoArray(photos){
 engine.search = function(meta){
     return new Promise(function(resolve, reject){ 
         auth().then(function(api){       
-            api.photos.search({text: createSearchText(meta)}, function(err, result){
+            api.photos.search({tags: createSearchText(meta), tag_mode: "all"}, function(err, result){
                 if(err) 
                     resolve([],"Problemas al cargar la informacion: " + err)
                 else {

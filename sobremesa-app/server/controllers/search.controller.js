@@ -1,4 +1,5 @@
 var flickrService = require('../services/flickr.engine');
+var vaService = require('../services/va.engine');
 
 var controller = {};
 
@@ -17,7 +18,9 @@ controller.search = function(meta){
 
     var googleResults = new Promise((resolve, reject) => {resolve()});
     var wikimediaResults = new Promise((resolve, reject) => {resolve()});
-    var vnaResults = new Promise((resolve, reject) => {resolve()});
+    
+    var vnaResults = vaService.search(meta).then(function(){console.log("Busqueda en VA completa")},function(){});
+
 
     return new Promise(function(resolve,reject){
         Promise.all([flickrResults, googleResults, wikimediaResults, vnaResults]).then(function(){
