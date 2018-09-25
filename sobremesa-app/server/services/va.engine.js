@@ -15,6 +15,8 @@ function createSerachURL(meta){
 
 function createPhotoArray(photos){
     var photoArray = [];
+    if(photos.length > 0)
+    {
     for(i = 0; i < photos.length; i++){
         var key = photos[i].fields.primary_image_id;
         var photo = {
@@ -22,6 +24,7 @@ function createPhotoArray(photos){
             uri : "http://media.vam.ac.uk/media/thira/collection_images/" + key.substring(0,6) + "/" + key + ".jpg"
         }
         photoArray.push(photo);
+    }
     }
     return photoArray;
 }
