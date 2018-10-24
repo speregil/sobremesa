@@ -1,32 +1,46 @@
 {
-    "name": "sobremesa",
-    "version": "0.1",
-    "description": "Server for the Ludis Project Implementation",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/speregil/ludisProject.git"
-    },
-    "dependencies": {
-        "axios": "^0.18.0",
-        "bcryptjs": "^2.1.0",
-        "body-parser": "^1.18.2",
-        "cookie-parser": "^1.4.3",
-        "cors": "^2.8.4",
-        "ejs": "^2.5.7",
-        "express": "^4.16.2",
-        "express-jwt": "^3.0.1",
-        "jsonwebtoken": "^5.0.2",
-        "lodash": "^3.10.0",
-        "mongodb": "^2.2.34",
-        "mongojs": "^2.4.1",
-        "mongoose": "^5.0.1",
-        "mongoskin": "^2.1.0",
-        "morgan": "^1.9.0",
-        "path": "^0.12.7",
-        "q": "^1.4.1",
-        "request": "^2.58.0",
-        "rootpath": "^0.1.2",
-        "xml2js": "^0.4.19"
-    },
-    "license": "MIT"
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Servidor para el app Sobremesa Digital",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speregil/sobremesa.git"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.1.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-jwt": "^3.0.1",
+    "flickrapi": "^0.6.0",
+    "jsonwebtoken": "^5.0.2",
+    "lodash": "^3.10.0",
+    "mongodb": "^2.2.34",
+    "mongojs": "^2.4.1",
+    "mongoose": "^5.0.1",
+    "mongoskin": "^2.1.0",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "q": "^1.4.1",
+    "request": "^2.58.0",
+    "rootpath": "^0.1.2",
+    "xml2js": "^0.4.19"
+  },
+  "keywords": [
+    "fotos"
+  ],
+  "author": "Sebastian Gil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/speregil/sobremesa/issues"
+  },
+  "homepage": "https://github.com/speregil/sobremesa#readme"
 }
