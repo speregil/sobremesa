@@ -6,7 +6,9 @@ var flickrOptions = {
       secret: "b7648ea6e37d6ca4"
     };
 
-var engine = {};
+var engine = {
+    prefix : ""
+};
 
 function auth(){
 
@@ -25,9 +27,8 @@ function createSearchText(meta){
         if(meta.charAt(i) === ' ')
             meta = textService.setCharAt(meta,i,',');
     }
-    var txtSearch = "bldigital," + meta;
-    console.log("Flicker searching for: " + txtSearch);
-    return txtSearch;
+    console.log("Flicker searching for: " + engine.prefix + meta);
+    return (engine.prefix + meta);
 }
 
 function createPhotoArray(photos){
@@ -40,6 +41,10 @@ function createPhotoArray(photos){
         photoArray.push(photo);
     }
     return photoArray;
+}
+
+engine.setPrefix = function(pPrefix){
+    engine.prefix = pPrefix;
 }
 
 engine.search = function(meta){
