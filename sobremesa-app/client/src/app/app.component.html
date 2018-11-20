@@ -1,9 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Sobremesa Digital v. 1.2
+    Sobremesa Digital v1.3
   </h1>
   <input [(ngModel)]="searchTerms" placeholder="Terminos de busqueda..."><button class="btn btn-md btn-primary" (click) = "metaSearch()">Buscar</button>
+  <input [(ngModel)]="google" type="checkbox" name="cbGoogle" (change)="changeConfig()">Google 
+  <input [(ngModel)]="flickr" type="checkbox" name="cbFlickr" (change)="changeConfig()">British Library
+  <input [(ngModel)]="victoria" type="checkbox" name="cbVnA" (change)="changeConfig()"> Victoria and Albert museum
   
   <div class="col-md-4">
     <table class="table">

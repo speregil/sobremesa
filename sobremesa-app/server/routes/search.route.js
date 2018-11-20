@@ -21,4 +21,19 @@ router.get('/:meta',function(req, res, next){
     });
 });
 
+router.post('/config',function(req, res, next){
+    var config = req.body.config;
+    console.log("Cambiando configuración: " + req.body.config);
+    if(typeof(config) != 'undefined'){
+        controller.config(config).then(function(results, err){
+            res.status(200);
+            res.json(results);
+        });
+    }
+    else{
+        res.status(500);
+        res.send("Formato de configuración vacio o no válido");
+    }
+});
+
 module.exports = router;

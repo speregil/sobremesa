@@ -12,8 +12,27 @@ export class AppComponent {
 
   photos = [];
   searchTerms = "";
+  google = true;
+  flickr = true;
+  victoria = true;
+  googlePr = "XIX+century+";
+  flickrPr = "bldigital,";
+  vaPr = "";
 
   metaSearch(){
     this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data["photos"]);
+  }
+
+  changeConfig(){
+    console.log("Cambiando Configuración...");
+    this.service.changeConfig({
+      googleSearch : this.google,
+      googlePrefix : this.googlePr,
+      flickrSearch : this.flickr,
+      flickrPrefix : this.flickrPr,
+      vaSearch : this.victoria,
+      vaPrefix : this.vaPr
+    }).subscribe(data => console.log("Configuracion cambiada: " + data));
+    
   }
 }

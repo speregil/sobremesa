@@ -9,4 +9,8 @@ export class Service {
     metaSearch(meta : string){
         return this.http.get<{}>('http://localhost:3000/search/' + meta);
     }
+
+    changeConfig(pConfig : {}){
+        return this.http.post('http://localhost:3000/search/config', {config: pConfig});
+    }
 }
