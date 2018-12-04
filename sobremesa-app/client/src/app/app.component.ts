@@ -18,6 +18,7 @@ export class AppComponent {
   googlePr = "XIX+century+";
   flickrPr = "bldigital,";
   vaPr = "";
+  num = 5;
 
   metaSearch(){
     this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data["photos"]);
@@ -31,7 +32,8 @@ export class AppComponent {
       flickrSearch : this.flickr,
       flickrPrefix : this.flickrPr,
       vaSearch : this.victoria,
-      vaPrefix : this.vaPr
+      vaPrefix : this.vaPr,
+      numResults : this.num
     }).subscribe(data => console.log("Configuracion cambiada: " + data));
     
   }

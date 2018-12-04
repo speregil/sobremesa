@@ -8,9 +8,34 @@ var controller = {
                 vaSearch : true,
                 googlePrefix : "XIX+century+",
                 flickrPrefix : "bldigital,",
-                vaPrefix : ""
+                vaPrefix : "",
+                numResults : 5
             }
 };
+
+function numFilter(fullSearch){
+    var filterSearch = [];
+    var filter = controller.configData.numResults;
+    var searchSize = fullSearch.length;
+    if(filter >= searchSize)
+        return fullSearch;
+    else{
+        for(var cent = 0; cent < filter; cent++)
+        {
+            var i = getRandomInt(0,searchSize);
+            var selected = fullSearch[i];
+            if(!filterSearch.includes(selected))
+                filterSearch.push(selected);
+            else
+                cent--;
+        }
+    }
+    return filterSearch;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 controller.config = function(config){
     return new Promise(function(resolve, reject){ 
@@ -20,6 +45,7 @@ controller.config = function(config){
         controller.configData.flickrPrefix = config.flickrPrefix;
         controller.configData.vaSearch = config.vaSearch;
         controller.configData.vaPrefix = config.vaPrefix;
+        controller.configData.numResults = config.numResults;
         resolve(controller.configData);
     });
 }
@@ -82,9 +108,10 @@ controller.search = function(meta){
         vnaResults = new Promise((resolve, reject) => {resolve()});
     }
 
+    // Promise resolve
     return new Promise(function(resolve,reject){
         Promise.all([flickrResults, googleResults, vnaResults]).then(function(){
-            resolve(fullSearch, errSearch);
+            resolve(numFilter(fullSearch), errSearch);
         }, function(){
             reject("Algo impidio que al menos una busqueda no se resolviera");
         })
