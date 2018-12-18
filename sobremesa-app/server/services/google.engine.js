@@ -1,7 +1,7 @@
 var axios = require('axios');
 var textService = require('../services/text.service');
 
-var url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDERGecwMwWjc-C-YdC02bzi0Pw6QKFFHE&cx=002610522876290491785:-vtu8psekmi&searchType=image&rights=cc_noncommercial&q=";
+var url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDERGecwMwWjc-C-YdC02bzi0Pw6QKFFHE&cx=002610522876290491785:-vtu8psekmi&searchType=image&q=";
 
 var engine = {
     prefix : ""

@@ -15,8 +15,8 @@ export class AppComponent {
   google = true;
   flickr = true;
   victoria = true;
-  googlePr = "XIX+century+";
-  flickrPr = "bldigital,";
+  googlePr = "";
+  flickrPr = "";
   vaPr = "";
   num = 5;
 
