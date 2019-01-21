@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef} from '@angular/core';
 import { Service } from './app.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,9 @@ import { Service } from './app.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  constructor(private service: Service){}
+export class AppComponent implements AfterViewInit{
+  constructor(private service: Service, private elementRef: ElementRef){}
 
-  photos = [];
-  searchTerms = "";
   google = true;
   flickr = true;
   victoria = true;
@@ -20,8 +19,16 @@ export class AppComponent {
   vaPr = "";
   num = 5;
 
-  metaSearch(){
-    this.service.metaSearch(this.searchTerms).subscribe(data => this.photos = data["photos"]);
+  getColumns() {
+    return Array.from(Array(25).keys()).map(i => 0 + i);   
+  }
+
+  getRows() {
+    return Array.from(Array(20).keys()).map(i => 0 + i);   
+  }
+
+  metaSearch(query, element){
+    this.service.metaSearch(query).subscribe(data => element.src = data[0].uri);
   }
 
   changeConfig(){
@@ -35,6 +42,10 @@ export class AppComponent {
       vaPrefix : this.vaPr,
       numResults : this.num
     }).subscribe(data => console.log("Configuracion cambiada: " + data));
-    
+  }
+
+  ngAfterViewInit(): void {
+    const img = this.elementRef.nativeElement.querySelector('#img0');
+    this.metaSearch(img.alt, img);
   }
 }
