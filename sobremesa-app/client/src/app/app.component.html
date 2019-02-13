@@ -5,24 +5,14 @@
   <input [(ngModel)]="victoria" type="checkbox" name="cbVnA" (change)="changeConfig()"> Victoria and Albert museum
 </div>
 <br>
-Número de resultados <select [(ngModel)]="num" (change)="changeConfig()">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="5">5</option>
-    <option value="10">10</option>
-    <option value="100">100</option>
-</select>
-<!--
-<div class="container">
-<section class="main"><div id="ri-grid" class="ri-grid ri-grid-size-2">
-<ul>
-  <li *ngFor="let photo of photos"><a><img src="images/medium/1.jpg"/></a></li>
-</ul>
-</div></section></div>
--->  
-<table>
-  <tr *ngFor="let i of getColumns()">
-    <td *ngFor="let i of getRows()"><img id="img{{i}}" alt="red dress"></td>
-  </tr>
-</table>
+
+<div class="grid-container" #photoView>
+    <div class="grid-item" ><img id="img0" alt="black glass lenses" src=""></div>
+    <div class="grid-item"><img id="img1" alt="coffer" src=""></div>
+    <div class="grid-item"><img id="img2" alt="bed sheet" src=""></div>
+    <div class="grid-item"><img id="img3" alt="orchestra" src=""></div>
+    <div class="grid-item"><img id="img4" alt="bodice" src=""></div>
+    <div class="grid-item"><img id="img5" alt="desk" src=""></div>
+    <div class="grid-item"><img id="img6" alt="lamp" src=""></div>
+    <div class="grid-item"><img id="img7" alt="sunblind" src=""></div>
+</div>
