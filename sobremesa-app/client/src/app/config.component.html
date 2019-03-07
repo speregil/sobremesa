@@ -1,5 +1,11 @@
-<h1>Intro</h1>
+
+<div style="text-align:center">
+    <input [(ngModel)]="google" type="checkbox" name="cbGoogle" >Google 
+    <input [(ngModel)]="flickr" type="checkbox" name="cbFlickr" >British Library
+    <input [(ngModel)]="victoria" type="checkbox" name="cbVnA" > Victoria and Albert museum
+    <input [(ngModel)]="num" type="text" name="iNum" > Numero de búsquedas
+    <br>
+    <input type="button" name="btnChange" (click)="changeConfig()"> Cambiar
+</div>
 
 <a routerLink="/view" routerLinkActive="active">Ver</a>
-
-<router-outlet></router-outlet>

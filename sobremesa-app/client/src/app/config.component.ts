@@ -1,4 +1,4 @@
-import {Component, Renderer2} from '@angular/core';
+import {AfterViewInit,Component, Renderer2} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Service } from './app.service';
 
@@ -12,7 +12,7 @@ import { Service } from './app.service';
 /* 
  * Componente que maneja varios criterios de configuración para la visualizacion en la vista principal
  */
-export class ConfigComponent {
+export class ConfigComponent implements AfterViewInit{
 
   //-------------------------------------------------------------------------------------------------------
   // Atributos
@@ -32,7 +32,15 @@ export class ConfigComponent {
 
   num = 5;            // Controla el número de imagenes que las busquedas traen del back-end
 
+  //--------------------------------------------------------------------------------------------------------
+  // Métodos
+  //--------------------------------------------------------------------------------------------------------
+
   constructor(private service: Service, private renderer: Renderer2){}
+
+  ngAfterViewInit(): void {
+    
+  }
 
   /**
    * Solicita la promesa de cambio de configuración de busqueda en el servidor y escribe un mensaje en consola

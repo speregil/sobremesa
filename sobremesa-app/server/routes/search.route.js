@@ -1,9 +1,29 @@
-var express = require('express');
+/**
+ * Controlador para el enrutamiento de los diferentes servicios que ofrece el servidor
+ */
 
-var controller = require('../controllers/search.controller');
-var router = express.Router();
+ //-----------------------------------------------------------------------------------------
+ // Dependencias
+ //-----------------------------------------------------------------------------------------
 
-router.get('/:meta',function(req, res, next){
+var express = require('express');                                   // Nodo de Express
+var controller = require('../controllers/search.controller');       // Controlador principal
+
+//------------------------------------------------------------------------------------------
+// Atributos
+//------------------------------------------------------------------------------------------
+
+var router = express.Router();  // Nodo de enrutamiento
+
+//------------------------------------------------------------------------------------------
+// Rutas
+//------------------------------------------------------------------------------------------
+
+/**
+ * Ruta para el servicio de busqueda
+ * GET: Lista de imagenes
+ */
+router.get('/search/:meta',function(req, res, next){
     var data = {
         photos : [],
         errors : []
@@ -18,6 +38,19 @@ router.get('/:meta',function(req, res, next){
     },function(err){
         res.status(500);
         res.send("Error en el servicio: " + err);
+    });
+});
+
+/**
+ * Ruta para el servicio de configuración
+ * GET: Objeto con la configuración actual
+ * POST: Nueva configuración de busqueda
+ */
+router.get('/config', function(req, res, next){
+    console.log("Recuperando Configuración Actual...");
+    controller.getConfig().then(function(results, err){
+        res.status(200);
+        res.json(results);
     });
 });
 

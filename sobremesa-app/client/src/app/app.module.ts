@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import { IntroComponent } from './intro.component';
 import { AppComponent } from './app.component';
 import { ConfigComponent } from './config.component';
 
@@ -16,14 +17,12 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    IntroComponent,
     AppComponent,
     ConfigComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule,
     FormsModule
@@ -31,6 +30,6 @@ const appRoutes: Routes = [
   providers: [
     Service
   ],
-  bootstrap: [ConfigComponent]
+  bootstrap: [IntroComponent]
 })
 export class AppModule { }

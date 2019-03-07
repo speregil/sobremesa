@@ -17,20 +17,8 @@ export class AppComponent implements AfterViewInit{
   // Atributos
   //-------------------------------------------------------------------------------------------------------
 
-  // Controlan las fuentes donde se buscan la imágenes
-
-  google = true;      // Permite la busqueda con el API general de Google 
-  flickr = true;      // Permite la busqueda con el API gratuito de Flickr
-  victoria = true;    // Permite la busqueda con el API del Victoria&Albert museum
-
-  // Controlan prefijos específicos para cualquier busqueda en todas las fuentes
-
-  googlePr = "";      // Prefijo para la busqueda en Google
-  flickrPr = "";      // Prefijo para la busqueda en Flickr
-  vaPr = "";          // Prefijo para la busqueda en V&A museum
-
-  num = 5;            // Controla el número de imagenes que las busquedas traen del back-end
-  photoList = [];     // Lista en memoria del conjunto de fotos que se muestra actualmente
+  // Lista en memoria del conjunto de fotos que se muestra actualmente
+  photoList = [];     
 
   // Referencia a la tabla en al vista principal con todas las imágenes que se muestran
   @ViewChild("photoView") photoView: ElementRef;
@@ -69,23 +57,6 @@ export class AppComponent implements AfterViewInit{
   }
 
   /**
-   * Solicita la promesa de cambio de configuración de busqueda en el servidor y escribe un mensaje en consola
-   * si se completó con éxito
-   */
-  changeConfig(){
-    console.log("Cambiando Configuración...");
-    this.service.changeConfig({
-      googleSearch : this.google,
-      googlePrefix : this.googlePr,
-      flickrSearch : this.flickr,
-      flickrPrefix : this.flickrPr,
-      vaSearch : this.victoria,
-      vaPrefix : this.vaPr,
-      numResults : this.num
-    }).subscribe(data => console.log("Configuracion cambiada: " + data));
-  }
-
-  /**
    * Asigna al atributo src elemento del DOM con el id que entra por parámetro la fuente de imagen que entra por parámetro
    * @param elementID Identificador del elemento del DOM. Se asume que es un marcador <img>
    * @param pURI Ruta de la imagen que se quiere mostrar
@@ -111,5 +82,4 @@ export class AppComponent implements AfterViewInit{
     }
     return {};
   }
-
 }
