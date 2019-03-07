@@ -10,8 +10,6 @@ import { Service } from './app.service';
 
 /**
  * Componente que maneja la vista principal del proyecto y el proces de busquedas
- * El componente maneja varios criterios de configuración que la vista principal
- * no implementa actualmente
  */
 export class AppComponent implements AfterViewInit{
   
@@ -65,8 +63,8 @@ export class AppComponent implements AfterViewInit{
   metaSearch(query, elementID){
       this.service.metaSearch(query).subscribe(data => {
         console.log(data);
-        this.photoList.push({id:elementID, lst:data.photos});
-        this.loadPhoto(elementID,data.photos[0].uri);
+        this.photoList.push({id:elementID, lst:data['photos']});
+        this.loadPhoto(elementID,data['photos'][0].uri);
       });
   }
 
