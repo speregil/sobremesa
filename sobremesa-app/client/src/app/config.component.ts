@@ -32,6 +32,8 @@ export class ConfigComponent implements AfterViewInit{
 
   num = 5;            // Controla el número de imagenes que las busquedas traen del back-end
 
+  msn = "";           // Controla el mensaje de respuesta del cambio de configuración
+
   //--------------------------------------------------------------------------------------------------------
   // Métodos
   //--------------------------------------------------------------------------------------------------------
@@ -39,7 +41,17 @@ export class ConfigComponent implements AfterViewInit{
   constructor(private service: Service, private renderer: Renderer2){}
 
   ngAfterViewInit(): void {
-    
+    console.log("Verificando Configuración Actual");
+    this.service.getConfig().subscribe(config =>{
+      this.google = config["googleSearch"];
+      this.googlePr = config["googlePrefix"];
+      this.flickr = config["flickrSearch"];
+      this.flickrPr = config["flickrPrefix"];
+      this.victoria = config["vaSearch"];
+      this.vaPr = config["vaPrefix"];
+      this.num = config["numResults"];
+      this.msn = "";
+    })
   }
 
   /**
@@ -48,6 +60,7 @@ export class ConfigComponent implements AfterViewInit{
    */
   changeConfig(){
     console.log("Cambiando Configuración...");
+    this.msn = "";
     this.service.changeConfig({
       googleSearch : this.google,
       googlePrefix : this.googlePr,
@@ -56,6 +69,6 @@ export class ConfigComponent implements AfterViewInit{
       vaSearch : this.victoria,
       vaPrefix : this.vaPr,
       numResults : this.num
-    }).subscribe(data => console.log("Configuracion cambiada: " + data));
+    }).subscribe(data => {this.msn = "Configuración Cambiada"});
   }
 }
