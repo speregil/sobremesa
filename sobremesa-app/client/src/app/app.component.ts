@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild, Renderer2} from '@angular/core';
+import { interval } from 'rxjs';
 import { Service } from './app.service';
 
 
@@ -16,6 +17,12 @@ export class AppComponent implements AfterViewInit{
   //-------------------------------------------------------------------------------------------------------
   // Atributos
   //-------------------------------------------------------------------------------------------------------
+
+  // Temporizador para el cambio de imágenes
+  source = interval(1000);
+
+  // Tiempo (en segundos) para el cambio de imágenes
+  shift = 10;
 
   // Lista en memoria del conjunto de fotos que se muestra actualmente
   photoList = [];     
@@ -40,6 +47,8 @@ export class AppComponent implements AfterViewInit{
       var imgTags = photos[i].children;
       this.metaSearch(imgTags[0].alt, imgTags[0].id); 
     }
+
+    this.source.subscribe(val => this.shiftImages(val));
   }
 
   /**
@@ -50,9 +59,12 @@ export class AppComponent implements AfterViewInit{
    */
   metaSearch(query, elementID){
       this.service.metaSearch(query).subscribe(data => {
-        console.log(data);
-        this.photoList.push({id:elementID, lst:data['photos']});
-        this.loadPhoto(elementID,data['photos'][0].uri);
+        this.photoList.push({id:elementID, lst:data['photos'], pos:0});
+        var first = data['photos'][0];
+        if(first)
+          this.loadPhoto(elementID,data['photos'][0].uri);
+        else
+          this.loadPhoto(elementID,"assets/not.png");
       });
   }
 
@@ -81,5 +93,42 @@ export class AppComponent implements AfterViewInit{
         return this.photoList[i]
     }
     return {};
+  }
+
+  /**
+   * Cambia las imagenes de todas las casillas por la siguientes diponible en la lista pre - cargada
+   * @param timer Temporizador que se usa para verificar el cambio
+   */
+  public shiftImages(timer){
+    if(timer > 0 && timer%this.shift == 0){
+      console.log("Shifting...");
+      var photos = this.photoView.nativeElement.children;
+      for(var i = 0; i < photos.length; i++){
+        var imgTags = photos[i].children;
+        var photoList = this.searchPhotoList(imgTags[0].id);
+        var lst = photoList["lst"];
+        var curPos = photoList["pos"];
+        if(lst){
+          if(curPos + 1 < lst.length){
+            this.loadPhoto(imgTags[0].id, lst[curPos + 1].uri);
+            photoList["pos"] = curPos + 1;
+          }
+          else{
+            if(lst[0]){
+              this.loadPhoto(imgTags[0].id, lst[0].uri);
+              photoList["pos"] = 0;
+            }
+            else{
+              console.log("Cargando imagen por defecto...");
+              this.loadPhoto(imgTags[0].id, "assets/not.png");
+            }
+          }
+        }
+        else{
+          console.log("Cargando imagen por defecto...");
+          this.loadPhoto(imgTags[0].id, "assets/not.png");
+        }
+      }
+    }
   }
 }

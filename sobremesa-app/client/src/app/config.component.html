@@ -1,12 +1,48 @@
+<table width="52%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td width="14%"><div class="column">
+            <label class="switch">
+                <input [(ngModel)]="google" type="checkbox" name="cbGoogle" >
+                <span class="slider"></span>
+            </label>
+        </div></td>
+    
+        <td width="86%"><div class="column">
+            <span class="style2"> Google </span>
+        </div></td>
+    </tr>
+    <tr>
+        <td width="14%"><div class="column">
+            <label class="switch">
+                <input [(ngModel)]="victoria" type="checkbox" name="cbVnA">
+                <span class="slider"></span>
+            </label>
+        </div></td>
+    
+        <td width="86%"><div class="column">
+            <span class="style2"> V&amp;A </span>
+        </div></td>
+    </tr>
+    <tr>
+        <td width="14%"><div class="column">
+            <label class="switch">
+                <input [(ngModel)]="flickr" type="checkbox" name="cbFlickr" >
+                <span class="slider"></span>
+            </label>
+        </div></td>
+      
+        <td width="86%"><div class="column">
+            <span class="style2"> British Library </span>
+        </div></td>
+    </tr>
+    <tr>
+        <td width="14%"><div class="column">
+            <div class="btn-group"><button class="button" name="btnChange" (click)="changeConfig()">Change</button></div>
+        </div></td>
+        <td width="14%"><div class="column">
+            <div class="btn-group"><a routerLink="/view" routerLinkActive="active"><button class="button">Play</button></a></div>
+        </div></td>
+    </tr>
+</table>
 
-<div style="text-align:center">
-    <input [(ngModel)]="google" type="checkbox" name="cbGoogle" >Google 
-    <input [(ngModel)]="flickr" type="checkbox" name="cbFlickr" >British Library
-    <input [(ngModel)]="victoria" type="checkbox" name="cbVnA" > Victoria and Albert museum
-    <input [(ngModel)]="num" type="text" name="iNum" > Numero de búsquedas
-    <br>
-    <input type="button" name="btnChange" (click)="changeConfig()"> Cambiar
-    <p>{{msn}}</p>
-</div>
-
-<a routerLink="/view" routerLinkActive="active">Ver</a>
+<p>{{msn}}</p>
