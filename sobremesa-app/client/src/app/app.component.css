@@ -3,7 +3,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     padding: 1px;
 }
 
@@ -343,3 +343,51 @@ li.dropdown {
     display: block;
     margin: 0 0.5em;
   }
+
+
+  /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.instrumento {
+  border-top: 3px solid;
+  border-top-color: #CC99CC;
+}
+
+.mueble {
+  border-top: 3px solid;
+  border-top-color: #66CCCC;
+}
+
+.joyeria {
+  border-top: 3px solid;
+  border-top-color: #FF9999;
+}
+
+.vestuario {
+  border-top: 3px solid;
+  border-top-color: #F0CA66;
+}

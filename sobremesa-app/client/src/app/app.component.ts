@@ -64,7 +64,7 @@ export class AppComponent implements AfterViewInit{
         if(first)
           this.loadPhoto(elementID,data['photos'][0].uri);
         else
-          this.loadPhoto(elementID,"assets/not.png");
+          this.setDefaultImage(elementID);
       });
   }
 
@@ -79,6 +79,24 @@ export class AppComponent implements AfterViewInit{
       var imgTags = photos[i].children;
       if(imgTags[0].id == elementID){
         imgTags[0].src = pURI;
+      }
+    }
+  }
+
+  setDefaultImage(elementID){
+    var photos = this.photoView.nativeElement.children;
+    for(var i = 0; i < photos.length; i++){
+      var imgTags = photos[i].children;
+      if(imgTags[0].id == elementID){
+        var type = imgTags[0].classList;
+        if(type.contains('instrumento'))
+          this.loadPhoto(elementID,"assets/instrumento.png");
+        else if(type.contains('mueble'))
+          this.loadPhoto(elementID,"assets/muebles.png");
+        else if(type.contains('vestuario'))
+          this.loadPhoto(elementID,"assets/vestuario.png");
+        else if(type.contains('joyeria'))
+          this.loadPhoto(elementID,"assets/joyeria.png");
       }
     }
   }
@@ -120,13 +138,13 @@ export class AppComponent implements AfterViewInit{
             }
             else{
               console.log("Cargando imagen por defecto...");
-              this.loadPhoto(imgTags[0].id, "assets/not.png");
+              this.setDefaultImage(imgTags[0].id);
             }
           }
         }
         else{
           console.log("Cargando imagen por defecto...");
-          this.loadPhoto(imgTags[0].id, "assets/not.png");
+          this.setDefaultImage(imgTags[0].id);
         }
       }
     }
