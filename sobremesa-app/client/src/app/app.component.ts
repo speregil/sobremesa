@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit{
   //-------------------------------------------------------------------------------------------------------
 
   // Temporizador para el cambio de imágenes
-  source = interval(1000);
+  source = interval(500);
 
   // Tiempo (en segundos) para el cambio de imágenes
   shift = 10;
@@ -121,8 +121,9 @@ export class AppComponent implements AfterViewInit{
     if(timer > 0 && timer%this.shift == 0){
       console.log("Shifting...");
       var photos = this.photoView.nativeElement.children;
-      for(var i = 0; i < photos.length; i++){
-        var imgTags = photos[i].children;
+      var rands = this.getRandomItems(photos);
+      for(var i = 0; i < rands.length; i++){
+        var imgTags = rands[i]['children'];
         var photoList = this.searchPhotoList(imgTags[0].id);
         var lst = photoList["lst"];
         var curPos = photoList["pos"];
@@ -148,5 +149,14 @@ export class AppComponent implements AfterViewInit{
         }
       }
     }
+  }
+
+  private getRandomItems(array): object[]{
+    var rands = [];
+    var num = Math.floor(Math.random()*array.length);
+    for(var i = 0; i < num + 1;i++){
+      rands.push(array[Math.floor(Math.random()*array.length)]);
+    }
+    return rands;
   }
 }
