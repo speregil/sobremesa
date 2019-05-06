@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class Service {
   
+    host = '54.175.193.171:4200';
+
     constructor ( private http: HttpClient) {}
 
     /**
@@ -15,7 +17,7 @@ export class Service {
      * @return Promesa que espera un objeto con la información de las imágenes encontradas
      */
     metaSearch(meta : string){
-        return this.http.get<{}>('http://localhost:3000/search/' + meta);
+        return this.http.get<{}>('http://' + this.host + '/search/' + meta);
     }
 
     /**
@@ -24,10 +26,10 @@ export class Service {
      * @return Promesa que espera un objeto con los datos de la nueva configuración
      */
     changeConfig(pConfig : {}){
-        return this.http.post('http://localhost:3000/config', {config: pConfig});
+        return this.http.post('http://' + this.host + '/config', {config: pConfig});
     }
 
     getConfig(){
-        return this.http.get<{}>('http://localhost:3000/config'); 
+        return this.http.get<{}>('http://' + this.host + '/config'); 
     }
 }
