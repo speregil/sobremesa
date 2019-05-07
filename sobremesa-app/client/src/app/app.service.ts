@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class Service {
   
-    host = '54.175.193.171:4200';
+    host = '54.175.193.171';
 
     constructor ( private http: HttpClient) {}
 
@@ -17,6 +17,7 @@ export class Service {
      * @return Promesa que espera un objeto con la información de las imágenes encontradas
      */
     metaSearch(meta : string){
+        console.log('http://' + this.host + '/search/' + meta);
         return this.http.get<{}>('http://' + this.host + '/search/' + meta);
     }
 
