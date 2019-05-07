@@ -1,1 +1,721 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+/* CSS Document */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    padding: 1px;
+}
+
+.grid-item {
+    width: 100%;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 0px;
+    padding: 1px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  
+  
+  .btn-group .button {
+      background-color: #666666; 
+      border: none;
+      color: white;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      float: left;
+      padding-top: 9px;
+      padding-right: 15px;
+      padding-bottom: 9px;
+      padding-left: 15px;
+      font-family: 'Lora', serif;
+  }
+  
+  .btn-group .button:hover {
+   background-color: #2196F3; /* Azul claro */
+      
+      
+  }
+  
+/* Create two equal columns that floats next to each other */
+.column {
+      float: left;
+      margin-top: 5px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      margin-left: 5px;
+  }
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+ .style1 {
+	font-size: 30px;
+	color: #333333;
+  }
+
+
+
+
+  .style2 {
+	font-size: 18px;
+	color: #333333;	
+  }
+
+
+body {
+	color: #666666;
+	font-family: 'Lora', serif;
+	font-size: 16px;
+	line-height: 1.6;
+	background: #666666;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+.oneColLiqCtrHdr #container {
+	width: 100%;  /* this will create a container 80% of the browser width */
+	background: #FFFFFF;
+	margin: 0 auto;
+	text-align: left;
+}
+.oneColLiqCtrHdr #header {
+	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColLiqCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColLiqCtrHdr #mainContent {
+	background: #FFFFFF;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-bottom: 0;
+}
+
+
+.oneColLiqCtrHdr #mainContent2 {
+	background: #FFFFFF;
+	float: none;
+	margin-right: 6%;
+	margin-left: 6%;
+	padding-top: 40px;
+	padding-right: 6%;
+	padding-bottom: 0;
+	padding-left: 6%;
+}
+
+
+
+.oneColLiqCtrHdr #parrafo {
+	background: #FFFFFF;
+	width: 40%;
+	padding-top: 0;
+	padding-right: 20px;
+	padding-bottom: 0;
+	padding-left: 20px;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+.oneColLiqCtrHdr #footer {
+	padding-top: 10;
+	padding-right: 12%;
+	padding-bottom: 0;
+	padding-left: 12%;
+	float: none;
+	width: 30%;
+	margin-right: auto;
+	margin-left: auto;
+} 
+.oneColLiqCtrHdr #footer p {
+	float: none;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+
+/* menu */
+
+
+ul {
+color: #333333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #CCCCCC;
+	
+	
+	
+	
+}
+
+li {
+  float: right;
+}
+
+li a, .dropbtn {
+	display: inline-block;
+	color: #333333;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-right: 20px;
+	padding-bottom: 2px;
+	padding-left: 20px;
+	
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+	background-color: #FF9999;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 60px;
+/*  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);*/
+  z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	padding-top: 12px;
+	padding-right: 20px;
+	padding-bottom: 12px;
+	padding-left: 20px;
+}
+
+.dropdown-content a:hover {
+	background-color: #ECE67E
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* background */
+#muebles-deco {
+	background-color: #66CCCC;
+	
+		
+
+	   }
+	   
+	
+#joyería {
+	background-color:#FF9999;
+
+	   }
+	   	 
+#vestuario {
+	background-color:#ECE67E;
+	   }	
+	   
+	   	   
+#instrumentos {
+	background-color:#CC99CC;
+
+	   }
+
+#highlight {
+	background-color:#CCFFCC;
+	   }
+
+
+
+
+
+
+/* menu categorias */
+
+
+  .floating-menu2 {
+    font-family: sans-serif;
+    padding: 0px;;
+    width: 54px;
+	height: 190px;
+    z-index: 100;
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+  }
+
+  .floating-menu2 a, 
+  .floating-menu2 h3 {
+    font-size: 0.9em;
+    display: block;
+    margin: 0 0.5em;
+  }
+
+
+  /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.instrumento {
+  border-top: 6px solid;
+  border-top-color: #CC99CC;
+}
+
+.mueble {
+  border-top: 6px solid;
+  border-top-color: #66CCCC;
+}
+
+.joyeria {
+  border-top: 6px solid;
+  border-top-color: #FF9999;
+}
+
+.vestuario {
+  border-top: 6px solid;
+  border-top-color: #F0CA66;
+}
+
+/* Defaults */
+body {
+  background: #f9f9f9;
+  color: #465665;
+}
+
+a {
+  color: #5b7083;
+  transition: all .25s ease-in-out;
+}
+
+/* The title */
+.title {
+  font-weight: 700;
+}
+
+/* The description */
+.desc {
+  font-size: 1em;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+/* Text-centering */
+.title,
+.desc,
+.intro {
+  text-align: center;
+}
+
+/* Intro section */
+.intro {
+  margin: 1.75em 0 .75em;
+  border-bottom: 3px double rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.75em;
+}
+
+.intro a {
+  opacity: .7;
+}
+
+.intro a:hover {
+  opacity: 1;
+}
+
+.intro h3 {
+  font-size: .825em;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: .25em .75em .75em;
+}
+
+.intro h3 a {
+  font-weight: 400;
+}
+
+/* Masonry grid */
+.masonry {
+  transition: all .5s ease-in-out;
+  column-gap: 30px;
+  column-fill: initial;
+}
+
+/* Masonry item */
+.masonry .brick {
+  margin-bottom: 30px;
+  display: inline-block; /* Fix the misalignment of items */
+  vertical-align: top; /* Keep the item on the very top */
+}
+
+/* Masonry image effects */
+.masonry .brick img {
+  transition: all .5s ease-in-out;
+  backface-visibility: hidden; /* Remove Image flickering on hover */
+}
+
+.masonry .brick:hover img {
+  opacity: .75;
+}
+
+/* Bordered masonry */
+.masonry.bordered {
+  column-rule: 1px solid #eee;
+  column-gap: 50px;
+}
+
+.masonry.bordered .brick {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Gutterless masonry */
+.masonry.gutterless {
+  column-gap: 0;
+}
+
+.masonry.gutterless .brick {
+  margin-bottom: 0;
+}
+
+/* Masonry on tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+/* Masonry on big screens */
+@media only screen and (min-width: 1024px) {
+  .desc {
+    font-size: 1.25em;
+  }
+
+  .intro {
+    letter-spacing: 1px;
+  }
+
+  .masonry {
+    column-count: 10;
+  }
+}
+
+.style1 {
+	font-size: 30px;
+	color: #333333;
+ 	line-height: 100%;
+  }
+
+
+
+
+  .style2 {
+	font-size: 18px;
+	color: #999999;
+  }
+  
+
+
+ /* texto subrayado */
+
+  .style3 {
+	font-size: 16px;
+	background-color:  #E5E5E5;
+	text-align: left;
+	font-family: 'Lora', serif;
+  }
+  
+ /* link: Aquí */ 
+    .style4 {
+	font-size: 16px;
+	background-color:#66CCFF; 
+	text-align: left;
+	font-family: 'Lora', serif;
+  }
+
+ /* subtitulo */ 
+  .style5 {
+	font-size: 24px;
+	color: #333333;
+	line-height: 100%;
+  }
+
+
+
+hr {
+	border: 2px solid #E1E1E1;
+} 
+
+.oneColLiqCtrHdr #container {
+	width: 100%;
+	text-align: left;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+.oneColLiqCtrHdr #header {
+	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColLiqCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColLiqCtrHdr #mainContent {
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 20px;
+	padding-bottom: 0;
+}
+
+
+.oneColLiqCtrHdr #mainContent2 {
+	background: #FFFFFF;
+	float: none;
+	margin-right: 6%;
+	margin-left: 6%;
+	padding-top: 40px;
+	padding-right: 6%;
+	padding-bottom: 0;
+	padding-left: 6%;
+}
+
+
+
+.oneColLiqCtrHdr #mainContent3 {
+	float: none;
+	margin-right: 6%;
+	margin-left: 40%;
+	padding-top: 10%;
+	padding-right: 6%;
+	padding-bottom: 10%;
+	padding-left: 6%;
+	background-color: #FFFFFF;
+}
+
+
+
+
+.oneColLiqCtrHdr #parrafo {
+	width: 40%;
+	padding-top: 0;
+	padding-right: 20px;
+	padding-bottom: 0;
+	padding-left: 20px;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+.oneColLiqCtrHdr #footer {
+	padding-top: 10;
+	padding-right: 12%;
+	padding-bottom: 0;
+	padding-left: 12%;
+	float: none;
+	width: 30%;
+	margin-right: auto;
+	margin-left: auto;
+} 
+.oneColLiqCtrHdr #footer p {
+	float: none;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+
+
+
+
+
+/* menu */
+
+
+ul {
+color: #333333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #CCCCCC;
+	
+	
+	
+	
+}
+
+li {
+  float: right;
+}
+
+li a, .dropbtn {
+	display: inline-block;
+	color: #333333;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-right: 20px;
+	padding-bottom: 2px;
+	padding-left: 20px;
+	
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+	background-color: #FF9999;
+}
+
+li.dropdown {
+	display: inline-block;
+	margin-right: 13px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 60px;
+	/*  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);*/
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	padding-top: 12px;
+	padding-right: 20px;
+	padding-bottom: 12px;
+	padding-left: 20px;
+}
+
+.dropdown-content a:hover {
+	background-color: #66CCFF; /* rollover de menu*/
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+

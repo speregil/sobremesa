@@ -16,9 +16,9 @@ var googleService = require('../services/google.engine');   // Servicio que se c
 //--------------------------------------------------------------------------------------------------
 
 var controller = {
-    configData : { googleSearch : true,             // Determina si se hace la busqueda con el API de Google o no
-                flickrSearch : true,                // Determina si se hace la busqueda con el API de Flickr o no
-                vaSearch : true,                    // Determina si se hace la busqueda con el API del V&A museum o no
+    configData : { googleSearch : false,             // Determina si se hace la busqueda con el API de Google o no
+                flickrSearch : false,                // Determina si se hace la busqueda con el API de Flickr o no
+                vaSearch : false,                    // Determina si se hace la busqueda con el API del V&A museum o no
                 googlePrefix : "XIX+century+",      // Prefijos de busqueda por defecto para el APi de Google
                 flickrPrefix : "bldigital,",        // Prefijos de busqueda por defecto para el APi de Flickr
                 vaPrefix : "",                      // Prefijos de busqueda por defecto para el APi del V&A museum
