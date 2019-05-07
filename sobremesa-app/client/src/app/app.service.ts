@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class Service {
   
-    host = '54.175.193.171';
+    host = '54.175.193.171:3000';
 
     constructor ( private http: HttpClient) {}
 
