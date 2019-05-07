@@ -1,23 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    padding: 1px;
-}
-
-.grid-item {
-    width: 100%;
-    min-height: 120px;
-    max-height: auto;
-    float: left;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 0px;
-    padding: 1px;
-    text-align: center;
-}
-
 img {
     max-width: 100%;
     height: auto;
@@ -152,7 +135,9 @@ img {
 	float: none;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 20px;
+  padding-top: 20px;
+  padding-left: 12%;
+  padding-right: 12%;
 	padding-bottom: 0;
 }
 
@@ -554,7 +539,6 @@ body {
 	background: #666666;
 	margin: 0;
 	padding: 0;
-	text-align: center;
 	background-color: #FFFFFF;
 	width: 100%;
 }
